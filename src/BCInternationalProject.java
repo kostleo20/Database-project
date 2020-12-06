@@ -226,17 +226,18 @@ public class BCInternationalProject {
     }
 
     private static void international(Connection conn) throws SQLException, IOException {
-        //Statement selectStatement = conn.createStatement();
-        //String query = "";
-        //ResultSet selectResult = selectStatement.executeQuery(query);
+        Statement selectStatement = conn.createStatement();
+        String query = "select * from Regulations_And_Laws";
+        ResultSet selectResult = selectStatement.executeQuery(query);
 
         System.out.println("International Rules & Laws:");
         System.out.println("--------------------------------------------------\n");
 
-        //while(selectResult.next()) {
-        //    String #### = selectResult.getString(###);
-        //    System.out.println("###: " + ####);
-        //}
+        while(selectResult.next()) {
+            String name = selectResult.getString(1);
+            String desc = selectResult.getString(2);
+            System.out.println("Law/Regulation: " + name + "    |  Description: " + desc);
+        }
     }
 
 
