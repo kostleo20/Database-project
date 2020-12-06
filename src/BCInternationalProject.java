@@ -1071,17 +1071,21 @@ public class BCInternationalProject {
     }
 
     private static void updateStudentCourseRegistration(Connection conn) throws SQLException, IOException {
-        //Statement selectStatement = conn.createStatement();
-        //String query = "";
-        //ResultSet selectResult = selectStatement.executeQuery(query);
 
         System.out.println("Update a student Course registration:");
         System.out.println("--------------------------------------------------\n");
+        
+        String courseID, studentSSN;
+        System.out.print("Type in course ID you want to update: ");
+        System.out.flush();
+        courseID = readLine();
+        System.out.println();
+        
+        System.out.print("Type in student SSN you want to update: ");
+        System.out.flush();
+        studentSSN = readLine();
+        System.out.println();
 
-        //while(selectResult.next()) {
-        //    String #### = selectResult.getString(###);
-        //    System.out.println("###: " + ####);
-        //}
     }
 
     static String readEntry(String prompt) {
