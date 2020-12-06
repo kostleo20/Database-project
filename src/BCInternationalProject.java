@@ -1075,7 +1075,7 @@ public class BCInternationalProject {
         System.out.println("Update a student Course registration:");
         System.out.println("--------------------------------------------------\n");
         
-        String courseID, studentSSN;
+        String courseID, studentSSN, temp, answer;
         System.out.print("Type in course ID you want to update: ");
         System.out.flush();
         courseID = readLine();
@@ -1085,7 +1085,61 @@ public class BCInternationalProject {
         System.out.flush();
         studentSSN = readLine();
         System.out.println();
-
+        
+        Statement stmt = conn.createStatement();
+        String command;
+        
+        System.out.print("Update Course ID? Answer[Y/N]");
+        System.out.flush();
+        temp = readLine();
+        answer = readLine();
+        System.out.println();
+        if (answer.charAt(0) == 'Y')
+        {
+            System.out.print("Type in new Course ID: ");
+            System.out.flush();
+            temp = readLine();
+            System.out.println();
+            
+            command  = "update Student_Takes_Course set CourseID = " + temp + " where CourseID = " + courseID + "and StudentSSN =" + studentSSN;
+            try
+            {
+            	stmt.executeUpdate(command);
+            	System.out.println("Update succeeds.");
+            }
+            catch (SQLException e)
+            {
+            	System.out.println(e.toString());
+            	System.out.println("Update fails.");
+            }
+            return;
+        }
+        
+        System.out.print("Update Student SSN? Answer[Y/N]");
+        System.out.flush();
+        temp = readLine();
+        answer = readLine();
+        System.out.println();
+        if (answer.charAt(0) == 'Y')
+        {
+            System.out.print("Type in new StudentSSN: ");
+            System.out.flush();
+            temp = readLine();
+            System.out.println();
+            
+            command  = "update Student_Takes_Course set StudentSSN = " + temp + " where CourseID = " + courseID + "and StudentSSN =" + studentSSN;
+            try
+            {
+            	stmt.executeUpdate(command);
+            	System.out.println("Update succeeds.");
+            }
+            catch (SQLException e)
+            {
+            	System.out.println(e.toString());
+            	System.out.println("Update fails.");
+            }
+            return;
+        }
     }
 
     static String readEntry(String prompt) {
