@@ -32,8 +32,66 @@ public class BCInternationalProject {
                 System.out.println();
                 switch (ch1.charAt(0)) {
                     case '1':
-                        currentStudents(conn);
+                        //currentStudents(conn);
+                        printCurrentStudentMenu();
+                        System.out.print("Type in your option: ");
+                        System.out.flush();
+                        String ch6 = readLine();
+                        System.out.println();
+                        switch (ch6.charAt(0)) {
+                            case '1':
+                                printAcademicInformationMenu();
+                                System.out.print("Type in your option: ");
+                                System.out.flush();
+                                String ch7 = readLine();
+                                System.out.println();
+                                switch (ch7.charAt(0)) {
+                                    case '1':
+                                        educationalHistory(conn);
+                                        break;
+                                    case '2':
+                                        collageStudentsInformation(conn);
+                                        break;
+                                }
+                                break;
+                            case '2':
+                                printContactInformationMenu();
+                                System.out.print("Type in your option: ");
+                                System.out.flush();
+                                String ch8 = readLine();
+                                System.out.println();
+                                switch (ch8.charAt(0)) {
+                                    case '1':
+                                        allStudentContact(conn);
+                                        break;
+                                    case '2':
+                                        studentFromACountry(conn);
+                                        break;
+                                    case '3':
+                                        workingStudentContact(conn);
+                                        break;
+                                }
+                                break;
+                            case '3':
+                                printVisaStatusMenu();
+                                System.out.print("Type in your option: ");
+                                System.out.flush();
+                                String ch9 = readLine();
+                                System.out.println();
+                                switch (ch9.charAt(0)) {
+                                    case '1':
+                                        visaStatus(conn);
+                                        break;
+                                    case '2':
+                                        f1Visa(conn);
+                                        break;
+                                }
+                                break;
+                            case '4':
+                                break;
+                        }
                         break;
+
                     case '2':
                         graduatedStudents(conn);
                         break;
@@ -1141,7 +1199,128 @@ public class BCInternationalProject {
             return;
         }
     }
+    
 
+
+    // ############# OPTION 1 #############
+
+
+
+    private static void educationalHistory(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("Update specific student information:");
+        System.out.println("--------------------------------------------------\n");
+
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+    private static void collageStudentsInformation(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("Update specific course information:");
+        System.out.println("--------------------------------------------------\n");
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+
+
+    // ############# OPTION 2 #############
+
+
+
+    private static void allStudentContact(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("All student contact details:");
+        System.out.println("--------------------------------------------------\n");
+
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+    private static void studentFromACountry(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("Student from a Country:");
+        System.out.println("--------------------------------------------------\n");
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+    private static void workingStudentContact(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("Working students contact information:");
+        System.out.println("--------------------------------------------------\n");
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+
+
+    // ############# OPTION 3 #############
+
+
+
+    private static void visaStatus(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("Visa Status Report:");
+        System.out.println("--------------------------------------------------\n");
+
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+
+    private static void f1Visa(Connection conn) throws SQLException, IOException {
+        //Statement selectStatement = conn.createStatement();
+        //String query = "";
+        //ResultSet selectResult = selectStatement.executeQuery(query);
+
+        System.out.println("F-1 visa:");
+        System.out.println("--------------------------------------------------\n");
+
+        //while(selectResult.next()) {
+        //    String #### = selectResult.getString(###);
+        //    System.out.println("###: " + ####);
+        //}
+    }
+    
+    
+    
     static String readEntry(String prompt) {
         try {
             StringBuffer buffer = new StringBuffer();
@@ -1206,5 +1385,28 @@ public class BCInternationalProject {
         System.out.println("                          2. Update specific course information");
         System.out.println("                          3. Update department information");
         System.out.println("                          4. Update a student Course registration");
+    }
+    
+        private static void printCurrentStudentMenu() {
+        System.out.println("                          1. Academic information");
+        System.out.println("                          2. Contact information");
+        System.out.println("                          3. visa status");
+        System.out.println("                          4. Quit");
+    }
+
+    private static void printAcademicInformationMenu() {
+        System.out.println("                          1. Education history for a student");
+        System.out.println("                          2. College Students information");
+    }
+
+    private static void printContactInformationMenu() {
+        System.out.println("                          1. All student contact details");
+        System.out.println("                          2. Student from a Country");
+        System.out.println("                          3. Working students contract information");
+    }
+
+    private static void printVisaStatusMenu() {
+        System.out.println("                          1. Visa Status Report");
+        System.out.println("                          2. F-1 visa");
     }
 }
